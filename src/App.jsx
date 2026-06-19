@@ -6,6 +6,7 @@ import UseCases from './components/UseCases';
 import Philosophy from './components/Philosophy';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
+      <BackToTop />
     </LanguageProvider>
   );
 }

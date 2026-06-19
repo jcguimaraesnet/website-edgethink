@@ -4,7 +4,7 @@ import { useLanguage } from '../LanguageContext';
 export default function UseCases() {
   const { t } = useLanguage();
   return (
-    <section style={{ padding: '90px 56px' }}>
+    <section id="use-cases" style={{ padding: '90px 56px', scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ maxWidth: '48em', marginBottom: 48 }}>
           <div style={{ font: `600 13px/1 ${fonts.mono}`, letterSpacing: '0.16em', textTransform: 'uppercase', color: colors.red, marginBottom: 18 }}>

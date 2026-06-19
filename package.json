@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Edge Think — AI Agents & Automation landing page (Variation 01, Editorial Light)",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -5,7 +5,7 @@ import { contact } from '../i18n';
 export default function FinalCTA() {
   const { t } = useLanguage();
   return (
-    <section style={{ padding: '96px 56px', textAlign: 'center', background: colors.bgPink }}>
+    <section id="contato" style={{ padding: '96px 56px', textAlign: 'center', background: colors.bgPink, scrollMarginTop: 80 }}>
       <h2 style={{ margin: '0 auto 18px', font: `700 40px/1.15 ${fonts.serif}`, color: colors.dark, maxWidth: '18em' }}>
         {t.finalTitle}
       </h2>

@@ -10,7 +10,7 @@ export const contact = {
 
 export const translations = {
   pt: {
-    nav: { features: 'Recursos', cases: 'Casos de uso', philosophy: 'Filosofia', cta: 'Diagnóstico gratuito' },
+    nav: { home: 'Início', features: 'Recursos', cases: 'Casos de uso', philosophy: 'Filosofia', cta: 'Diagnóstico gratuito' },
     hero: {
       eyebrow: 'AI Agents & Automation',
       title1: 'Humanos definem a estratégia.',
@@ -47,7 +47,7 @@ export const translations = {
     rights: '© 2026 Edge Think. Todos os direitos reservados.',
   },
   en: {
-    nav: { features: 'Features', cases: 'Use cases', philosophy: 'Philosophy', cta: 'Free diagnosis' },
+    nav: { home: 'Home', features: 'Features', cases: 'Use cases', philosophy: 'Philosophy', cta: 'Free diagnosis' },
     hero: {
       eyebrow: 'AI Agents & Automation',
       title1: 'Humans set the strategy.',

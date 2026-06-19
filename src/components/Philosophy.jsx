@@ -4,7 +4,7 @@ import { useLanguage } from '../LanguageContext';
 export default function Philosophy() {
   const { t } = useLanguage();
   return (
-    <section style={{ position: 'relative', overflow: 'hidden', padding: '96px 56px', background: colors.navy, color: '#fff' }}>
+    <section id="philosophy" style={{ position: 'relative', overflow: 'hidden', padding: '96px 56px', background: colors.navy, color: '#fff', scrollMarginTop: 80 }}>
       <div style={{ position: 'absolute', top: -120, right: -80, width: 380, height: 380, border: '1px solid rgba(255,255,255,0.12)', borderRadius: '50%' }} />
       <div style={{ position: 'absolute', bottom: -140, right: 120, width: 240, height: 240, border: '1px solid rgba(248,131,121,0.35)', borderRadius: '50%' }} />
       <div style={{ position: 'relative', maxWidth: '40em', marginLeft: 'auto', marginRight: 'auto', paddingLeft: 0 }}>

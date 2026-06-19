@@ -11,11 +11,13 @@ Landing page institucional da **Edge Think**, consultoria de **agentes de IA & a
 
 ## Desenvolvimento local
 
+> Este projeto usa **pnpm** como gerenciador de pacotes.
+
 ```bash
-npm install        # instala dependências
-npm run dev        # servidor de desenvolvimento (http://localhost:5173)
-npm run build      # build de produção → ./dist
-npm run preview    # serve o build de produção localmente
+pnpm install       # instala dependências
+pnpm dev           # servidor de desenvolvimento (http://localhost:5173)
+pnpm build         # build de produção → ./dist
+pnpm preview       # serve o build de produção localmente
 ```
 
 ## Estrutura

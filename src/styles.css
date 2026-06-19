@@ -2,6 +2,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 html,
 body {
   margin: 0;
@@ -43,6 +46,9 @@ a {
 
 /* Respect reduced-motion preferences for the decorative animations. */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   * {
     animation: none !important;
   }

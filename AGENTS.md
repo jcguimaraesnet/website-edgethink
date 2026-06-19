@@ -16,6 +16,7 @@ Site estático (SPA React) servido pelo **GitHub Pages** no domínio customizado
 - **React 18 + Vite 5** — estilos inline orientados por design tokens (sem framework de UI)
 - **i18n** próprio via React Context ([src/LanguageContext.jsx](src/LanguageContext.jsx) + [src/i18n.js](src/i18n.js)) — bilíngue pt-BR / en-US, padrão pt-BR, persiste em `localStorage`
 - Fontes: Playfair Display (títulos/logo) via Google Fonts; Helvetica (corpo); mono (eyebrows)
+- **pnpm** como gerenciador de pacotes (commitar `pnpm-lock.yaml`, nunca `package-lock.json`)
 - Build e deploy via **GitHub Actions** ([.github/workflows/deploy.yml](.github/workflows/deploy.yml)) — builda com Vite e publica `./dist`
 
 > Histórico: o site foi migrado de **Jekyll (Serif Theme)** para este app React em jun/2026.
@@ -23,10 +24,10 @@ Site estático (SPA React) servido pelo **GitHub Pages** no domínio customizado
 ## Desenvolvimento local
 
 ```bash
-npm install        # instala dependências
-npm run dev        # servidor de desenvolvimento (http://localhost:5173)
-npm run build      # build de produção → ./dist
-npm run preview    # serve o build de produção
+pnpm install       # instala dependências
+pnpm dev           # servidor de desenvolvimento (http://localhost:5173)
+pnpm build         # build de produção → ./dist
+pnpm preview       # serve o build de produção
 ```
 
 ## Estrutura

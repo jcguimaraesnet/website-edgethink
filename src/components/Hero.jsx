@@ -7,6 +7,7 @@ export default function Hero() {
   const { t } = useLanguage();
   return (
     <section
+      id="top"
       style={{
         display: 'grid',
         gridTemplateColumns: '1.1fr 0.9fr',
@@ -30,12 +31,12 @@ export default function Hero() {
           {t.hero.sub}
         </p>
         <div style={{ display: 'flex', gap: 14, alignItems: 'center', marginBottom: 44 }}>
-          <button style={{ background: colors.red, color: '#fff', font: `600 15px ${fonts.sans}`, padding: '15px 26px', border: 'none', borderRadius: 9, cursor: 'pointer' }}>
+          <a href="#contato" style={{ background: colors.red, color: '#fff', font: `600 15px ${fonts.sans}`, padding: '15px 26px', border: 'none', borderRadius: 9, cursor: 'pointer', textDecoration: 'none' }}>
             {t.hero.cta}
-          </button>
-          <button style={{ background: 'transparent', color: colors.navy, font: `600 15px ${fonts.sans}`, padding: '15px 22px', border: `1px solid ${colors.borderBtn}`, borderRadius: 9, cursor: 'pointer' }}>
+          </a>
+          <a href="#use-cases" style={{ background: 'transparent', color: colors.navy, font: `600 15px ${fonts.sans}`, padding: '15px 22px', border: `1px solid ${colors.borderBtn}`, borderRadius: 9, cursor: 'pointer', textDecoration: 'none' }}>
             {t.hero.secondary} →
-          </button>
+          </a>
         </div>
         <div>
           <div style={{ font: `500 12px/1 ${fonts.mono}`, letterSpacing: '0.1em', textTransform: 'uppercase', color: colors.muted, marginBottom: 14 }}>
