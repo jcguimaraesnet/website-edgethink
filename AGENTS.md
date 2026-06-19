@@ -4,63 +4,64 @@ Guia para agentes de IA trabalhando neste repositório.
 
 ## O que é
 
-Landing page institucional da **Edge Think** — consultoria/serviço de **agentes de IA**.
-Site estático servido pelo **GitHub Pages** no domínio customizado **edgethink.com.br**.
+Landing page institucional da **Edge Think** — consultoria/serviço de **agentes de IA & automação**.
+Site estático (SPA React) servido pelo **GitHub Pages** no domínio customizado **edgethink.com.br**.
 
 - **Repositório:** `jcguimaraesnet/website-edgethink` (era `jcguimaraesnet.github.io`)
 - **Domínio:** https://edgethink.com.br (HTTPS forçado)
-- **Base do tema:** Jekyll Serif Theme (Zerostatic), personalizado para a Edge Think
+- **Design:** variação "Editorial Light" gerada no Claude Design (handoff React)
 
 ## Stack atual
 
-- **Jekyll 4.3** (Ruby) + SCSS
-- Plugin `jekyll-environment-variables`
-- Build e deploy via **GitHub Actions** ([.github/workflows/jekyll.yml](.github/workflows/jekyll.yml)) — `build_type: workflow`, não o build clássico do Pages
+- **React 18 + Vite 5** — estilos inline orientados por design tokens (sem framework de UI)
+- **i18n** próprio via React Context ([src/LanguageContext.jsx](src/LanguageContext.jsx) + [src/i18n.js](src/i18n.js)) — bilíngue pt-BR / en-US, padrão pt-BR, persiste em `localStorage`
+- Fontes: Playfair Display (títulos/logo) via Google Fonts; Helvetica (corpo); mono (eyebrows)
+- Build e deploy via **GitHub Actions** ([.github/workflows/deploy.yml](.github/workflows/deploy.yml)) — builda com Vite e publica `./dist`
 
-> ⚠️ **Migração planejada:** há intenção de trocar o site Jekyll por um app **React (Vite)** ou **HTML puro** com o design remodelado. Se for migrar, troque o workflow para buildar o novo projeto e publicar a pasta de saída (`dist`), e **mantenha o `CNAME` no output** (em React/Vite, coloque o arquivo em `public/`).
+> Histórico: o site foi migrado de **Jekyll (Serif Theme)** para este app React em jun/2026.
 
 ## Desenvolvimento local
 
 ```bash
-bundle install              # instala dependências Ruby
-bundle exec jekyll serve    # servidor local em http://localhost:4000
-bundle exec jekyll build    # build para ./_site
+npm install        # instala dependências
+npm run dev        # servidor de desenvolvimento (http://localhost:5173)
+npm run build      # build de produção → ./dist
+npm run preview    # serve o build de produção
 ```
 
 ## Estrutura
 
 ```
-_config.yml          # config do Jekyll (baseurl '/', collections, sass)
-index.md             # home
-about.md services.md team.md contact.md
-_layouts/            # default, home, page, service(s), team(s), contact
-_includes/           # header, footer, menus, social, google-analytics
-_sass/               # variáveis bootstrap/SCSS
-_data/               # contact.yml, menus.yml, seo.yml, features.json, social.json
-_services/           # collection "services" (1 arquivo .md por serviço, ordenado por weight)
-_team/               # collection "team" (1 arquivo .md por pessoa)
-assets/ images/      # estáticos
-CNAME                # edgethink.com.br — fixa o domínio customizado
+index.html           # entry HTML (Google Fonts + #root)
+vite.config.js       # config do Vite (base '/')
+public/CNAME         # edgethink.com.br — copiado para dist/ no build
+src/
+  main.jsx           # entry React
+  App.jsx            # composição + LanguageProvider
+  LanguageContext.jsx, i18n.js   # i18n (Context + dicionário pt/en)
+  theme.js           # design tokens (cores, fontes)
+  styles.css         # reset + keyframes
+  components/         # Header, Hero, HeroGraphic, Features, UseCases,
+                     # Philosophy, FinalCTA, Footer
 ```
 
-> Nota: os arquivos em `_services/` e `_team/` ainda contêm conteúdo placeholder do tema
-> original (ex: `accounting.md`, nomes de equipe fictícios) — devem ser substituídos pelo
-> conteúdo real da Edge Think.
+> Os CTAs ("Solicite diagnóstico gratuito") ainda são placeholders — precisam ser ligados
+> ao fluxo real de leads (form, modal ou rota). Contato atual: jcguimaraes@gmail.com.
 
 ## Deploy & domínio (contexto importante)
 
-- Push na branch `main` → workflow do GitHub Actions builda e publica no Pages.
-- O domínio `edgethink.com.br` está **fixado via arquivo `CNAME`** + nas Settings do Pages.
+- Push na branch `main` → workflow do GitHub Actions builda com Vite e publica `./dist` no Pages.
+- O domínio `edgethink.com.br` é fixado pelo arquivo **`public/CNAME`** (entra no output do build) + nas Settings do Pages.
 - **DNS** está no **registro.br** (modo avançado), não há Cloudflare:
   - `A`/`AAAA` do apex → IPs anycast do GitHub Pages (`185.199.108-111.153`)
   - `CNAME www` → `jcguimaraesnet.github.io` (aponta para a conta, não para o repo)
 - Por ser um **project site** (nome ≠ `usuario.github.io`) com domínio customizado, o site
-  é servido na **raiz** do domínio (`baseurl: '/'`).
+  é servido na **raiz** do domínio (`base: '/'` no Vite).
 - ⚠️ **Não** crie um repo chamado `jcguimaraesnet.github.io` com o domínio `edgethink.com.br`
   apontado nele — isso reativaria o redirect global de `*.github.io` para o domínio.
 
 ## Convenções
 
-- Conteúdo e textos do site em **português (pt-BR)**.
+- Conteúdo e textos do site em **português (pt-BR)** e inglês (en-US), via dicionário i18n.
 - Commits gerados por IA usam o prefixo `[AI]` ou `[IA]` (ver histórico). Demais commits seguem Conventional Commits (`feat:`, `chore:`).
 - Commitar/pushar somente quando solicitado.
